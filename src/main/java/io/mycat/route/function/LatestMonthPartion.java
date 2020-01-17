@@ -25,7 +25,7 @@ public class LatestMonthPartion extends AbstractPartitionAlgorithm {
 		splitOneDay = split;
 		hourSpan = 24 / splitOneDay;
 		if (hourSpan * 24 < 24) {
-			throw new java.lang.IllegalArgumentException(
+			throw new IllegalArgumentException(
 					"invalid splitOnDay param:"
 							+ splitOneDay
 							+ " should be an even number and less or equals than 24");

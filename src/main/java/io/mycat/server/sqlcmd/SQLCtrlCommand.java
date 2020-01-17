@@ -22,7 +22,7 @@ public interface SQLCtrlCommand {
 	/**
 	 * 收到错误数据包的响应处理
 	 */
-	void errorResponse(NonBlockingSession session,byte[] err,int total,int failed);
+	void errorResponse(NonBlockingSession session, byte[] err, int total, int failed);
 
 	/**
 	 * 收到OK数据包的响应处理

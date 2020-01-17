@@ -18,7 +18,7 @@ public interface DataIO {
 	 * @throws InterruptedException 
 	 */
 	
-    void importData(TableMigrateInfo table,DataNode dn,String tableName,File file) throws IOException, InterruptedException;
+    void importData(TableMigrateInfo table, DataNode dn, String tableName, File file) throws IOException, InterruptedException;
     
     /**
      * 根据条件导出迁移数据
@@ -30,6 +30,6 @@ public interface DataIO {
      * @throws IOException 
      * @throws InterruptedException 
      */
-    File exportData(TableMigrateInfo table,DataNode dn,String tableName,File exportPath,File condion) throws IOException, InterruptedException;
+    File exportData(TableMigrateInfo table, DataNode dn, String tableName, File exportPath, File condion) throws IOException, InterruptedException;
 	
 }

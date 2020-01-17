@@ -36,7 +36,7 @@ import java.io.IOException;
 /**
  * A class for performing external sorting on key-value records. Both key and value are UnsafeRows.
  *
- * Note that this class allows optionally passing in a {@link io.mycat.memory.unsafe.map.BytesToBytesMap} directly in order
+ * Note that this class allows optionally passing in a {@link BytesToBytesMap} directly in order
  * to perform in-place sorting of records in the map.
  */
 

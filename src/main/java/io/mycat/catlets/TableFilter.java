@@ -351,7 +351,7 @@ public class TableFilter {
 		String sql="";
 		Iterator<Entry<String, String>> iter = fieldAliasMap.entrySet().iterator();
 		while (iter.hasNext()) {
-		  Map.Entry<String, String> entry = (Map.Entry<String, String>) iter.next();
+		  Entry<String, String> entry = (Entry<String, String>) iter.next();
 		  String key = entry.getKey();
 		  String val = entry.getValue();		
 			if (val==null) {

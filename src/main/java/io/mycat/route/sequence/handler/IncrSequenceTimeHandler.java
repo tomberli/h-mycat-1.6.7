@@ -37,12 +37,12 @@ public class IncrSequenceTimeHandler implements SequenceHandler {
 		InputStream inp = Thread.currentThread().getContextClassLoader().getResourceAsStream(propsFile);
 
 		if (inp == null) {
-			throw new java.lang.RuntimeException("time sequnce properties not found " + propsFile);
+			throw new RuntimeException("time sequnce properties not found " + propsFile);
 		}
 		try {
 			props.load(inp);
 		} catch (IOException e) {
-			throw new java.lang.RuntimeException(e);
+			throw new RuntimeException(e);
 		}
 		return props;
 	}

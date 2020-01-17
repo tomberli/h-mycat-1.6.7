@@ -27,7 +27,7 @@ public abstract class AbstractPartitionAlgorithm implements RuleAlgorithm ,Seria
 	 */
 	@Override
 	public Integer[] calculateRange(String beginValue, String endValue)  {
-		return new Integer[0];
+		return new Integer[0];//取数组的第一个数据
 	}
 	
 	/**

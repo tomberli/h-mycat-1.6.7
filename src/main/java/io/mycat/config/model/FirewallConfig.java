@@ -227,7 +227,7 @@ public final class FirewallConfig {
 
 	}
 	static class IgnoreDTDEntityResolver implements EntityResolver{
-		public InputSource resolveEntity(java.lang.String publicId, java.lang.String systemId) throws SAXException, java.io.IOException{
+		public InputSource resolveEntity(String publicId, String systemId) throws SAXException, java.io.IOException{
 			if (systemId.contains("server.dtd")){ 
 				//InputSource is = new InputSource(new ByteArrayInputStream("<?xml version=\"1.0\" encoding=\"UTF-8\"?>".getBytes()));
 				InputStream dtd = XMLServerLoader.class.getResourceAsStream("/server.dtd");

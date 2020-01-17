@@ -63,13 +63,13 @@ public class SecurityUtil {
             seed1 = ((seed1 * 3) + seed2) % max;
             seed2 = (seed1 + seed2 + 33) % max;
             d = (double) seed1 / (double) max;
-            b = (byte) java.lang.Math.floor((d * 31) + 64);
+            b = (byte) Math.floor((d * 31) + 64);
             chars[i] = (char) b;
         }
         seed1 = ((seed1 * 3) + seed2) % max;
 //        seed2 = (seed1 + seed2 + 33) % max;
         d = (double) seed1 / (double) max;
-        b = (byte) java.lang.Math.floor(d * 31);
+        b = (byte) Math.floor(d * 31);
         for (int i = 0; i < seed.length(); i++) {
             chars[i] ^= (char) b;
         }

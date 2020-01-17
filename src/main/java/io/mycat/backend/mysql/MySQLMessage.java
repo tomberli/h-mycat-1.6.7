@@ -324,7 +324,7 @@ public class MySQLMessage {
         return s;
     }
 
-    public java.sql.Time readTime() {
+    public Time readTime() {
         move(6);
         int hour = read();
         int minute = read();

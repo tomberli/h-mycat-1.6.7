@@ -141,6 +141,27 @@ public class ConfigUtil {
     }
 
     /**
+     * 自己拼接column
+     * @param parent
+     * @param tagName
+     * @return
+     */
+    public static String loadElementColumns(Element parent, String tagName) {
+        String column = null;
+        NodeList nodeList = parent.getElementsByTagName(tagName);
+        if(nodeList.getLength() <= 0){
+            return null;
+        }else{
+            for(int i=0;i<nodeList.getLength();i++){
+                Element columnsEle = (Element) nodeList.item(i);
+                column = column + columnsEle.getTextContent();
+            }
+        }
+        return column;
+    }
+
+
+    /**
      * 获取节点下所有property
      * @param parent
      * @return key-value property键值对

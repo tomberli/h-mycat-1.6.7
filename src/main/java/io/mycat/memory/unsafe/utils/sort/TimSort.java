@@ -43,7 +43,7 @@ import java.util.Comparator;
  *
  * This has been kept in Java with the original style in order to match very closely with the
  * Android source code, and thus be easy to verify correctness. The class is package private. We put
- * a simple Scala wrapper {@link io.mycat.memory.unsafe.utils.sort.Sorter}, which is available to
+ * a simple Scala wrapper {@link Sorter}, which is available to
  * The purpose of the port is to generalize the interface to the sort to accept input data formats
  * besides simple arrays where every element is sorted individually. For instance, the AppendOnlyMap
  * uses this to sort an Array with alternating elements of the form [key, value, key, value].
@@ -52,7 +52,7 @@ import java.util.Comparator;
  * We allow key reuse to prevent creating many key objects -- see SortDataFormat.
  *
  * @see io.mycat.memory.unsafe.utils.sort.SortDataFormat
- * @see io.mycat.memory.unsafe.utils.sort.Sorter
+ * @see Sorter
  */
 class TimSort<K, Buffer> {
 

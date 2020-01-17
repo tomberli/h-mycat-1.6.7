@@ -43,16 +43,19 @@ public class PartitionByMod extends AbstractPartitionAlgorithm implements RuleAl
 	private int count;
 	@Override
 	public void init() {
-	
-		
-	}
 
+	}
 
 
 	public void setCount(int count) {
 		this.count = count;
 	}
 
+	/**
+	 * 这里columValue是分库键值
+	 * @param columnValue
+	 * @return
+	 */
 	@Override
 	public Integer calculate(String columnValue)  {
 //		columnValue = NumberParseUtil.eliminateQoute(columnValue);
@@ -71,6 +74,7 @@ public class PartitionByMod extends AbstractPartitionAlgorithm implements RuleAl
 		int nPartition = this.count;
 		return nPartition;
 	}
+
 
 	private static void hashTest()  {
 		PartitionByMod hash=new PartitionByMod();
@@ -109,6 +113,8 @@ public class PartitionByMod extends AbstractPartitionAlgorithm implements RuleAl
 		System.out.println("****************************************************");
 		rehashTest(hashed.get(0));
 	}
+
+
 	private static void rehashTest(List<Integer> partition)  {
 		PartitionByMod hash=new PartitionByMod();
 		hash.count=110;//分片数
@@ -132,6 +138,9 @@ public class PartitionByMod extends AbstractPartitionAlgorithm implements RuleAl
 			System.out.println(idx+++"  "+i+"   "+(i/(double)total));
 		}
 	}
+
+
+
 	public static void main(String[] args)  {
 //		hashTest();
 		PartitionByMod partitionByMod = new PartitionByMod();

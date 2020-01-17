@@ -28,7 +28,7 @@ public class SchemaUtil {
         Map<String, SchemaConfig> schemaConfigMap = MycatServer.getInstance().getConfig()
                 .getSchemas();
         if (ServerParse.SELECT == type) {
-            SchemaUtil.SchemaInfo schemaInfo = SchemaUtil.parseSchema(sql);
+            SchemaInfo schemaInfo = SchemaUtil.parseSchema(sql);
             if ((schemaInfo == null || schemaInfo.table == null) && !schemaConfigMap.isEmpty()) {
                 db = schemaConfigMap.entrySet().iterator().next().getKey();
             }
@@ -46,7 +46,7 @@ public class SchemaUtil {
                 }
             }
         } else if (ServerParse.INSERT == type || ServerParse.UPDATE == type || ServerParse.DELETE == type || ServerParse.DDL == type) {
-            SchemaUtil.SchemaInfo schemaInfo = SchemaUtil.parseSchema(sql);
+            SchemaInfo schemaInfo = SchemaUtil.parseSchema(sql);
             if (schemaInfo != null && schemaInfo.schema != null && schemaConfigMap.containsKey(schemaInfo.schema)) {
                 db = schemaInfo.schema;
             }

@@ -56,7 +56,7 @@ public class PrefixComparators {
     public abstract boolean sortSigned();
   }
 
-  public static final  class RadixSortDemo extends PrefixComparators.RadixSortSupport{
+  public static final  class RadixSortDemo extends RadixSortSupport{
 
     @Override
     public boolean sortDescending() {

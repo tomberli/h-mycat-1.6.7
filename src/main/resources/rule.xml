@@ -9,6 +9,7 @@
 	under the License. -->
 <!DOCTYPE mycat:rule SYSTEM "rule.dtd">
 <mycat:rule xmlns:mycat="http://io.mycat/">
+	<!-- 1 固定分片hash算法-->
 	<tableRule name="rule1">
 		<rule>
 			<columns>id</columns>
@@ -16,13 +17,15 @@
 		</rule>
 	</tableRule>
 
+	<!-- 2 按日期（天）分片 -->
 	<tableRule name="sharding-by-date">
 		<rule>
-			<columns>createTime</columns>
+			<columns>create_time</columns>
 			<algorithm>partbyday</algorithm>
 		</rule>
 	</tableRule>
 
+	<!-- 3 固定分片hash算法-->
 	<tableRule name="rule2">
 		<rule>
 			<columns>user_id</columns>
@@ -30,42 +33,55 @@
 		</rule>
 	</tableRule>
 
+	<!-- 4 枚举分片 -->
 	<tableRule name="sharding-by-intfile">
 		<rule>
-			<columns>sharding_id</columns>
+			<columns>id</columns>
 			<algorithm>hash-int</algorithm>
 		</rule>
 	</tableRule>
+
+	<!-- 5 范围规定 -->
 	<tableRule name="auto-sharding-long">
 		<rule>
 			<columns>id</columns>
 			<algorithm>rang-long</algorithm>
 		</rule>
 	</tableRule>
+
+	<!-- 6 取模-->
 	<tableRule name="mod-long">
 		<rule>
 			<columns>id</columns>
 			<algorithm>mod-long</algorithm>
 		</rule>
 	</tableRule>
+
+	<!-- 7 -->
 	<tableRule name="sharding-by-murmur">
 		<rule>
 			<columns>id</columns>
 			<algorithm>murmur</algorithm>
 		</rule>
 	</tableRule>
+
+	<!-- 8 -->
 	<tableRule name="crc32slot">
 		<rule>
 			<columns>id</columns>
 			<algorithm>crc32slot</algorithm>
 		</rule>
 	</tableRule>
+
+	<!-- 9 自然月分片-->
 	<tableRule name="sharding-by-month">
 		<rule>
 			<columns>create_time</columns>
 			<algorithm>partbymonth</algorithm>
 		</rule>
 	</tableRule>
+
+	<!-- 10 按单月小时拆分-->
 	<tableRule name="latest-month-calldate">
 		<rule>
 			<columns>calldate</columns>
@@ -73,6 +89,7 @@
 		</rule>
 	</tableRule>
 
+	<!-- 11 范围求模分片-->
 	<tableRule name="auto-sharding-rang-mod">
 		<rule>
 			<columns>id</columns>
@@ -80,6 +97,7 @@
 		</rule>
 	</tableRule>
 
+	<!-- 12 -->
 	<tableRule name="jch">
 		<rule>
 			<columns>id</columns>
@@ -87,6 +105,10 @@
 		</rule>
 	</tableRule>
 
+
+
+	<!--  分库方法   -->
+	<!-- 1 -->
 	<function name="murmur"
 			  class="io.mycat.route.function.PartitionByMurmurHash">
 		<property name="seed">0</property><!-- 默认是0 -->
@@ -96,53 +118,67 @@
 		<!-- <property name="bucketMapPath">/etc/mycat/bucketMapPath</property>
 			用于测试时观察各物理节点与虚拟节点的分布情况，如果指定了这个属性，会把虚拟节点的murmur hash值与物理节点的映射按行输出到这个文件，没有默认值，如果不指定，就不会输出任何东西 -->
 	</function>
-
+	<!-- 2 -->
 	<function name="crc32slot"
 			  class="io.mycat.route.function.PartitionByCRC32PreSlot">
 		<property name="count">2</property><!-- 要分片的数据库节点数量，必须指定，否则没法分片 -->
 	</function>
-	<function name="hash-int"
-			  class="io.mycat.route.function.PartitionByFileMap">
+	<!-- 3 -->
+	<function name="hash-int" class="io.mycat.route.function.PartitionByFileMap">
 		<property name="mapFile">partition-hash-int.txt</property>
+		<property name="type">0</property>
+		<property name="defaultNode">0</property>
 	</function>
+	<!-- 4 范围规定 -->
 	<function name="rang-long"
 			  class="io.mycat.route.function.AutoPartitionByLong">
 		<property name="mapFile">autopartition-long.txt</property>
+		<property name="defaultNode">0</property>
 	</function>
+	<!-- 5 -->
 	<function name="mod-long" class="io.mycat.route.function.PartitionByMod">
 		<!-- how many data nodes -->
 		<property name="count">3</property>
 	</function>
-
+	<!-- 6 -->
 	<function name="func1" class="io.mycat.route.function.PartitionByLong">
-		<property name="partitionCount">8</property>
-		<property name="partitionLength">128</property>
+		<property name="partitionCount">1,1,1</property>
+		<property name="partitionLength">2,2,1020</property>
 	</function>
+
+	<!-- 7 按单月小时拆分-->
 	<function name="latestMonth"
 			  class="io.mycat.route.function.LatestMonthPartion">
 		<property name="splitOneDay">24</property>
 	</function>
+
+	<!-- 8 -->
 	<function name="partbymonth"
 			  class="io.mycat.route.function.PartitionByMonth">
 		<property name="dateFormat">yyyy-MM-dd</property>
-		<property name="sBeginDate">2015-01-01</property>
+		<property name="sBeginDate">2015-03-03</property>
 	</function>
 
-
-	<function name="partbyday"
-			  class="io.mycat.route.function.PartitionByDate">
+	<!-- 9 按日期（天）分片 可以小，但是不可以大-->
+	<function name="partbyday" class="io.mycat.route.function.PartitionByDate">
 		<property name="dateFormat">yyyy-MM-dd</property>
-		<property name="sNaturalDay">0</property>
-		<property name="sBeginDate">2014-01-01</property>
-		<property name="sEndDate">2014-01-31</property>
-		<property name="sPartionDay">10</property>
+		<!--<property name="sNaturalDay">0</property>-->
+		<property name="sBeginDate">2018-01-01</property>
+		<property name="sEndDate">2018-01-15</property>
+		<property name="sPartionDay">5</property>
 	</function>
 
+	<!-- 10 -->
 	<function name="rang-mod" class="io.mycat.route.function.PartitionByRangeMod">
 		<property name="mapFile">partition-range-mod.txt</property>
+		<!--节点从0开始，0代表1号库-->
+		<property name="defaultNode">1</property>
 	</function>
 
+	<!-- 11 -->
 	<function name="jump-consistent-hash" class="io.mycat.route.function.PartitionByJumpConsistentHash">
 		<property name="totalBuckets">3</property>
 	</function>
+
+
 </mycat:rule>

@@ -209,7 +209,7 @@ public class PhysicalDBPool {
 				return result;
 			}
 			default: {
-				throw new java.lang.IllegalArgumentException("writeType is "
+				throw new IllegalArgumentException("writeType is "
 						+ writeType + " ,so can't return one write datasource ");
 			}
 		}

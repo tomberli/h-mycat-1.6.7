@@ -474,21 +474,21 @@ public final class MysqlDefs {
 		} else if (mysqlType.equalsIgnoreCase("DATETIME")) { //$NON-NLS-1$
 			return mysqlToJavaType(FIELD_TYPE_DATETIME);
 		} else if (mysqlType.equalsIgnoreCase("TINYBLOB")) { //$NON-NLS-1$
-			return java.sql.Types.BINARY;
+			return Types.BINARY;
 		} else if (mysqlType.equalsIgnoreCase("BLOB")) { //$NON-NLS-1$
-			return java.sql.Types.LONGVARBINARY;
+			return Types.LONGVARBINARY;
 		} else if (mysqlType.equalsIgnoreCase("MEDIUMBLOB")) { //$NON-NLS-1$
-			return java.sql.Types.LONGVARBINARY;
+			return Types.LONGVARBINARY;
 		} else if (mysqlType.equalsIgnoreCase("LONGBLOB")) { //$NON-NLS-1$
-			return java.sql.Types.LONGVARBINARY;
+			return Types.LONGVARBINARY;
 		} else if (mysqlType.equalsIgnoreCase("TINYTEXT")) { //$NON-NLS-1$
-			return java.sql.Types.VARCHAR;
+			return Types.VARCHAR;
 		} else if (mysqlType.equalsIgnoreCase("TEXT")) { //$NON-NLS-1$
-			return java.sql.Types.LONGVARCHAR;
+			return Types.LONGVARCHAR;
 		} else if (mysqlType.equalsIgnoreCase("MEDIUMTEXT")) { //$NON-NLS-1$
-			return java.sql.Types.LONGVARCHAR;
+			return Types.LONGVARCHAR;
 		} else if (mysqlType.equalsIgnoreCase("LONGTEXT")) { //$NON-NLS-1$
-			return java.sql.Types.LONGVARCHAR;
+			return Types.LONGVARCHAR;
 		} else if (mysqlType.equalsIgnoreCase("ENUM")) { //$NON-NLS-1$
 			return mysqlToJavaType(FIELD_TYPE_ENUM);
 		} else if (mysqlType.equalsIgnoreCase("SET")) { //$NON-NLS-1$
@@ -502,7 +502,7 @@ public final class MysqlDefs {
 		} 
 
 		// Punt
-		return java.sql.Types.OTHER;
+		return Types.OTHER;
 	}
 
 	/**
@@ -649,21 +649,21 @@ public final class MysqlDefs {
 				mysqlToJavaType(FIELD_TYPE_TIMESTAMP)));
 		mysqlToJdbcTypesMap.put("DATETIME", new Integer(
 				mysqlToJavaType(FIELD_TYPE_DATETIME)));
-		mysqlToJdbcTypesMap.put("TINYBLOB", new Integer(java.sql.Types.BINARY));
+		mysqlToJdbcTypesMap.put("TINYBLOB", new Integer(Types.BINARY));
 		mysqlToJdbcTypesMap.put("BLOB", new Integer(
-				java.sql.Types.LONGVARBINARY));
+				Types.LONGVARBINARY));
 		mysqlToJdbcTypesMap.put("MEDIUMBLOB", new Integer(
-				java.sql.Types.LONGVARBINARY));
+				Types.LONGVARBINARY));
 		mysqlToJdbcTypesMap.put("LONGBLOB", new Integer(
-				java.sql.Types.LONGVARBINARY));
+				Types.LONGVARBINARY));
 		mysqlToJdbcTypesMap
-				.put("TINYTEXT", new Integer(java.sql.Types.VARCHAR));
+				.put("TINYTEXT", new Integer(Types.VARCHAR));
 		mysqlToJdbcTypesMap
-				.put("TEXT", new Integer(java.sql.Types.LONGVARCHAR));
+				.put("TEXT", new Integer(Types.LONGVARCHAR));
 		mysqlToJdbcTypesMap.put("MEDIUMTEXT", new Integer(
-				java.sql.Types.LONGVARCHAR));
+				Types.LONGVARCHAR));
 		mysqlToJdbcTypesMap.put("LONGTEXT", new Integer(
-				java.sql.Types.LONGVARCHAR));
+				Types.LONGVARCHAR));
 		mysqlToJdbcTypesMap.put("ENUM", new Integer(
 				mysqlToJavaType(FIELD_TYPE_ENUM)));
 		mysqlToJdbcTypesMap.put("SET", new Integer(

@@ -69,7 +69,7 @@ public class PartitionByDate extends AbstractPartitionAlgorithm implements RuleA
 				}
 			};
 		} catch (ParseException e) {
-			throw new java.lang.IllegalArgumentException(e);
+			throw new IllegalArgumentException(e);
 		}
 	}
 

@@ -39,7 +39,7 @@ public class AIOSocketWR extends SocketWR
             channel.read(theBuffer, this, aioReadHandler);
         } else
         {
-            throw new java.lang.IllegalArgumentException("full buffer to read ");
+            throw new IllegalArgumentException("full buffer to read ");
         }
 
     }

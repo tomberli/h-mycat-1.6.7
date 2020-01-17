@@ -158,9 +158,10 @@ public class XMLRuleLoader {
 	}
 
 	private RuleConfig loadRule(Element element) throws SQLSyntaxErrorException {
-		//读取columns
+		//读取columns  看是否可以拼接一些
 		Element columnsEle = ConfigUtil.loadElement(element, "columns");
 		String column = columnsEle.getTextContent();
+		//String column = ConfigUtil.loadElementColumns(element,"columns");
 		String[] columns = SplitUtil.split(column, ',', true);
 		if (columns.length > 1) {
 			throw new ConfigException("table rule coulmns has multi values:"

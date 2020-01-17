@@ -386,7 +386,7 @@ class SequenceVal {
 			if(dbfinished){
 				if (dbretVal == IncrSequenceMySQLHandler.errSeqResult) {
 					fetching.compareAndSet(true, false); //修改					
-					throw new java.lang.RuntimeException(
+					throw new RuntimeException(
 							"sequnce not found in db table ");
 				}
 				//进行处理 还有可能是链接错误等。
@@ -439,7 +439,7 @@ class SequenceVal {
 	//下一个可用的id
 	public long nextValue() {
 		if (successFetched == false) {
-			throw new java.lang.RuntimeException(
+			throw new RuntimeException(
 					"sequnce fetched failed  from db ");
 		}
 		return curVal.incrementAndGet();

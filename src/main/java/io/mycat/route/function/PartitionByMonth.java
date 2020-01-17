@@ -53,13 +53,13 @@ public class PartitionByMonth extends AbstractPartitionAlgorithm implements
 						+ endDate.get(Calendar.MONTH) - beginDate.get(Calendar.MONTH)) + 1;
 
 				if (nPartition <= 0) {
-					throw new java.lang.IllegalArgumentException("Incorrect time range for month partitioning!");
+					throw new IllegalArgumentException("Incorrect time range for month partitioning!");
 				}
 			} else {
 				nPartition = -1;
 			}
 		} catch (ParseException e) {
-			throw new java.lang.IllegalArgumentException(e);
+			throw new IllegalArgumentException(e);
 		}
 	}
 

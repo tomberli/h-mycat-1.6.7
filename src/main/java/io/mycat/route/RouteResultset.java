@@ -241,7 +241,7 @@ public final class RouteResultset implements Serializable {
 
     public void setPrimaryKey(String primaryKey) {
         if (!primaryKey.contains(".")) {
-            throw new java.lang.IllegalArgumentException(
+            throw new IllegalArgumentException(
                 "must be table.primarykey fomat :" + primaryKey);
         }
         this.primaryKey = primaryKey;

@@ -54,7 +54,7 @@ public class PartitionByHotDate extends AbstractPartitionAlgorithm implements Ru
 			sLastTime = Integer.valueOf(sLastDay);
             partionTime = Integer.parseInt(sPartionDay) * oneDay;
 		} catch (Exception e) {
-			throw new java.lang.IllegalArgumentException(e);
+			throw new IllegalArgumentException(e);
 		}
 	}
 

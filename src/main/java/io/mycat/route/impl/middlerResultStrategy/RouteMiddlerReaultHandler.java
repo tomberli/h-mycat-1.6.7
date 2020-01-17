@@ -15,6 +15,6 @@ public interface RouteMiddlerReaultHandler {
 	 * @param param
 	 * @return
 	 */
-	String dohandler(SQLStatement statement,SQLSelect sqlselect,SQLObject parent,List param);
+	String dohandler(SQLStatement statement, SQLSelect sqlselect, SQLObject parent, List param);
 
 }

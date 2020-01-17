@@ -28,7 +28,7 @@ public class ByteBufferPage {
         chunkAllocateTrack = new BitSet(chunkCount);
         relationBufferThreadId = new ConcurrentHashMap<>(chunkCount);
         this.buf = buf;
-        startAddress = ((sun.nio.ch.DirectBuffer) buf).address();
+        startAddress = ((DirectBuffer) buf).address();
     }
 
     public ByteBuffer allocatChunk(int theChunkCount) {

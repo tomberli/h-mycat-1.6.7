@@ -61,26 +61,26 @@ public interface EventSink<E> {
      <A, B> void publishEvents(EventTranslatorTwoArg<E, A, B> translator, A[] arg0, B[] arg1);
 
      <A, B> void publishEvents(
-            EventTranslatorTwoArg<E, A, B> translator, int batchStartsAt, int batchSize, A[] arg0,
-            B[] arg1);
+             EventTranslatorTwoArg<E, A, B> translator, int batchStartsAt, int batchSize, A[] arg0,
+             B[] arg1);
 
      <A, B> boolean tryPublishEvents(EventTranslatorTwoArg<E, A, B> translator, A[] arg0, B[] arg1);
 
      <A, B> boolean tryPublishEvents(
-            EventTranslatorTwoArg<E, A, B> translator, int batchStartsAt, int batchSize,
-            A[] arg0, B[] arg1);
+             EventTranslatorTwoArg<E, A, B> translator, int batchStartsAt, int batchSize,
+             A[] arg0, B[] arg1);
 
      <A, B, C> void publishEvents(EventTranslatorThreeArg<E, A, B, C> translator, A[] arg0, B[] arg1, C[] arg2);
 
      <A, B, C> void publishEvents(
-            EventTranslatorThreeArg<E, A, B, C> translator, int batchStartsAt, int batchSize,
-            A[] arg0, B[] arg1, C[] arg2);
+             EventTranslatorThreeArg<E, A, B, C> translator, int batchStartsAt, int batchSize,
+             A[] arg0, B[] arg1, C[] arg2);
 
      <A, B, C> boolean tryPublishEvents(EventTranslatorThreeArg<E, A, B, C> translator, A[] arg0, B[] arg1, C[] arg2);
 
      <A, B, C> boolean tryPublishEvents(
-            EventTranslatorThreeArg<E, A, B, C> translator, int batchStartsAt,
-            int batchSize, A[] arg0, B[] arg1, C[] arg2);
+             EventTranslatorThreeArg<E, A, B, C> translator, int batchStartsAt,
+             int batchSize, A[] arg0, B[] arg1, C[] arg2);
 
      void publishEvents(EventTranslatorVararg<E> translator, Object[]... args);
 

@@ -108,7 +108,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public void publishEvent(EventTranslator<E> translator) {
@@ -117,7 +117,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#tryPublishEvent(EventTranslator)
+     * @see EventSink#tryPublishEvent(EventTranslator)
      */
     @Override
     public boolean tryPublishEvent(EventTranslator<E> translator) {
@@ -131,7 +131,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     private <A> void translateAndPublish(EventTranslatorOneArg<E, A> translator, long sequence, A arg0) {
         try {
@@ -142,7 +142,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public <A> void publishEvent(EventTranslatorOneArg<E, A> translator, A arg0) {
@@ -151,7 +151,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public <A> boolean tryPublishEvent(EventTranslatorOneArg<E, A> translator, A arg0) {
@@ -173,7 +173,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public <A, B> void publishEvent(EventTranslatorTwoArg<E, A, B> translator, A arg0, B arg1) {
@@ -182,7 +182,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public <A, B> boolean tryPublishEvent(EventTranslatorTwoArg<E, A, B> translator, A arg0, B arg1) {
@@ -206,7 +206,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public <A, B, C> void publishEvent(EventTranslatorThreeArg<E, A, B, C> translator, A arg0, B arg1, C arg2) {
@@ -215,7 +215,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public <A, B, C> boolean tryPublishEvent(EventTranslatorThreeArg<E, A, B, C> translator, A arg0, B arg1, C arg2) {
@@ -238,7 +238,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
 
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public void publishEvent(EventTranslatorVararg<E> translator, Object... args) {
@@ -247,7 +247,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public boolean tryPublishEvent(EventTranslatorVararg<E> translator, Object... args) {
@@ -283,7 +283,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public void publishEvents(EventTranslator<E>[] translators) {
@@ -307,7 +307,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public void publishEvents(EventTranslator<E>[] translators, int batchStartsAt, int batchSize) {
@@ -317,7 +317,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public boolean tryPublishEvents(EventTranslator<E>[] translators) {
@@ -325,7 +325,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public boolean tryPublishEvents(EventTranslator<E>[] translators, int batchStartsAt, int batchSize) {
@@ -340,7 +340,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public <A> void publishEvents(EventTranslatorOneArg<E, A> translator, A[] arg0) {
@@ -368,7 +368,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public <A> void publishEvents(EventTranslatorOneArg<E, A> translator, int batchStartsAt, int batchSize, A[] arg0) {
@@ -378,7 +378,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public <A> boolean tryPublishEvents(EventTranslatorOneArg<E, A> translator, A[] arg0) {
@@ -386,7 +386,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public <A> boolean tryPublishEvents(EventTranslatorOneArg<E, A> translator, int batchStartsAt, int batchSize, A[] arg0) {
@@ -401,7 +401,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public <A, B> void publishEvents(EventTranslatorTwoArg<E, A, B> translator, A[] arg0, B[] arg1) {
@@ -431,7 +431,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public <A, B> void publishEvents(EventTranslatorTwoArg<E, A, B> translator, int batchStartsAt, int batchSize, A[] arg0, B[] arg1) {
@@ -441,7 +441,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public <A, B> boolean tryPublishEvents(EventTranslatorTwoArg<E, A, B> translator, A[] arg0, B[] arg1) {
@@ -449,7 +449,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public <A, B> boolean tryPublishEvents(EventTranslatorTwoArg<E, A, B> translator, int batchStartsAt, int batchSize, A[] arg0, B[] arg1) {
@@ -464,7 +464,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public <A, B, C> void publishEvents(EventTranslatorThreeArg<E, A, B, C> translator, A[] arg0, B[] arg1, C[] arg2) {
@@ -496,7 +496,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public <A, B, C> void publishEvents(EventTranslatorThreeArg<E, A, B, C> translator, int batchStartsAt, int batchSize, A[] arg0, B[] arg1, C[] arg2) {
@@ -506,7 +506,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public <A, B, C> boolean tryPublishEvents(EventTranslatorThreeArg<E, A, B, C> translator, A[] arg0, B[] arg1, C[] arg2) {
@@ -514,7 +514,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public <A, B, C> boolean tryPublishEvents(EventTranslatorThreeArg<E, A, B, C> translator, int batchStartsAt, int batchSize, A[] arg0, B[] arg1, C[] arg2) {
@@ -529,7 +529,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public void publishEvents(EventTranslatorVararg<E> translator, Object[]... args) {
@@ -537,7 +537,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public void publishEvents(EventTranslatorVararg<E> translator, int batchStartsAt, int batchSize, Object[]... args) {
@@ -567,7 +567,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public boolean tryPublishEvents(EventTranslatorVararg<E> translator, Object[]... args) {
@@ -575,7 +575,7 @@ public class RingBuffer<E extends MemoryConsumer> implements Cursored, EventSequ
     }
 
     /**
-     * @see io.mycat.memory.unsafe.ringbuffer.common.event.EventSink#publishEvent(EventTranslator)
+     * @see EventSink#publishEvent(EventTranslator)
      */
     @Override
     public boolean tryPublishEvents(EventTranslatorVararg<E> translator, int batchStartsAt, int batchSize, Object[]... args) {

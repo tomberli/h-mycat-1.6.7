@@ -67,7 +67,7 @@ public class DruidSequenceHandler {
                 }
                 break;
             default:
-                throw new java.lang.IllegalArgumentException("Invalid sequnce handler type " + seqHandlerType);
+                throw new IllegalArgumentException("Invalid sequnce handler type " + seqHandlerType);
         }
     }
 

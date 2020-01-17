@@ -80,7 +80,7 @@ public class CacheService {
 				String value = (String) props.get(key);
 				String[] valueItems = value.split(",");
 				if (valueItems.length < 3) {
-					throw new java.lang.IllegalArgumentException(
+					throw new IllegalArgumentException(
 							"invalid cache config ,key:" + key + " value:"
 									+ value);
 				}
@@ -104,7 +104,7 @@ public class CacheService {
 					String child = cacheName.substring(index + 1);
 					CachePool pool = this.allPools.get(parent);
 					if (pool == null || !(pool instanceof LayerCachePool)) {
-						throw new java.lang.IllegalArgumentException(
+						throw new IllegalArgumentException(
 								"parent pool not exists or not layered cache pool:"
 										+ parent + " the child cache is:"
 										+ child);
@@ -133,7 +133,7 @@ public class CacheService {
 
 	private void checkExists(String poolName) {
 		if (allPools.containsKey(poolName)) {
-			throw new java.lang.IllegalArgumentException(
+			throw new IllegalArgumentException(
 					"duplicate cache pool name: " + poolName);
 		}
 	}

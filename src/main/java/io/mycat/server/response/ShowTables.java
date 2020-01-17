@@ -64,7 +64,7 @@ public class ShowTables {
 
         //分库的schema，直接从SchemaConfig中获取所有表名
         Map<String,String> parm = buildFields(c,stmt);
-        java.util.Set<String> tableSet = getTableSet(c, parm);
+        Set<String> tableSet = getTableSet(c, parm);
 
 
         int i = 0;

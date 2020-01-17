@@ -15,7 +15,7 @@ public interface MiddlerResultHandler<T> {
  	
 	public List<SQLCharExpr> getResult();
 	
-	public void  add(T t );
+	public void  add(T t);
 	
 	public String getDataType();
 	

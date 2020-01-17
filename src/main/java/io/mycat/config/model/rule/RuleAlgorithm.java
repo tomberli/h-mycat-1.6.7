@@ -30,7 +30,7 @@ public interface RuleAlgorithm {
 
 	/**
 	 * init
-	 * 
+	 * 初始化数据
 	 * @param
 	 */
 	void init();
@@ -39,9 +39,16 @@ public interface RuleAlgorithm {
 	 * 
 	 * return sharding nodes's id
 	 * columnValue is column's value
+	 * columnValue 就是表的列值 id=1000
 	 * @return never null
 	 */
 	Integer calculate(String columnValue) ;
-	
-	Integer[] calculateRange(String beginValue,String endValue) ;
+
+	/**
+	 * 统计范围
+	 * @param beginValue
+	 * @param endValue
+	 * @return
+	 */
+	Integer[] calculateRange(String beginValue, String endValue) ;
 }
