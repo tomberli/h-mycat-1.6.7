@@ -3,7 +3,10 @@
 <mycat:schema xmlns:mycat="http://io.mycat/">
 
 	<schema name="TESTDB" checkSQLschema="true" sqlMaxLimit="100" randomDataNode="dn1">
+		<!-- 分片表 -->
 		<table name="product" dataNode="dn1,dn2,dn3" rule="mod-long" splitTableNames ="true"/>
+		<!--单库表-->
+
 	</schema>
 
 	<dataNode name="dn1" dataHost="localhost1" database="db1" />
@@ -12,7 +15,7 @@
 	<dataHost name="localhost1" maxCon="1000" minCon="10" balance="0"
 			  writeType="0" dbType="mysql" dbDriver="native" switchType="1"  slaveThreshold="100">
 		<heartbeat>select user()</heartbeat>
-		<writeHost host="hostM1" url="localhost:3306" user="root"
+		<writeHost host="hostM1" url="127.0.0.1:3306" user="root"
 				   password="123456">
 		</writeHost>
 	</dataHost>

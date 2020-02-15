@@ -200,9 +200,9 @@ public class XMLRuleLoader {
 					throw new ConfigException("rule function " + name
 							+ " duplicated!");
 				}
-				//获取class标签
+				//获取class标签  clazz就是算法类的绝对路径
 				String clazz = e.getAttribute("class");
-				//根据class利用反射新建分片算法
+				//根据class利用反射新建分片算法 获得算法对象 AbstractPartitionAlgorithm获取对象
 				AbstractPartitionAlgorithm function = createFunction(name, clazz);
 				//根据读取参数配置分片算法
 				ParameterMapping.mapping(function, ConfigUtil.loadElements(e));

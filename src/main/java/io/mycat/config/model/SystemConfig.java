@@ -473,7 +473,14 @@ public final class SystemConfig {
 	}
 
 	public static String getHomePath() {
-		String home = System.getProperty(SystemConfig.SYS_HOME);
+		//String home = System.getProperty(SystemConfig.SYS_HOME);
+		String home = null;
+		try {
+			File file = new File("");
+			home = file.getCanonicalPath();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		if (home != null
 				&& home.endsWith(File.pathSeparator)) {
 				home = home.substring(0, home.length() - 1);
