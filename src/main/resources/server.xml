@@ -62,7 +62,7 @@
 	</system>
 
 	<user name="root" defaultAccount="true">
-		<property name="password">123456</property>
+		<property name="password">123456789</property>
 		<property name="schemas">TESTDB</property>
 		<property name="defaultSchema">TESTDB</property>
 	</user>
